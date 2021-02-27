@@ -1,5 +1,6 @@
 import SEO from 'components/SEO'
 import { GetServerSideProps } from 'next'
+
 import { Title } from '../styles/pages/Home'
 interface IProduct {
   id:string;
@@ -11,7 +12,10 @@ interface HomeProps {
 }
 
 export default function Home({ recommendedProducts }: HomeProps) {
-
+   const handleSum =async()=>{
+     const  math = (await import('../lib/math')).default
+     alert(math.sum(3,5))
+   }
   return (
     <div >
       <SEO title="DevCommerce, your best commerce"/>
@@ -29,6 +33,7 @@ export default function Home({ recommendedProducts }: HomeProps) {
           })}
         </ul>
       </section>
+      <button onClick={handleSum}>Sum!</button>
     </div>
 
   )
