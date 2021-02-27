@@ -1,3 +1,4 @@
+import SEO from 'components/SEO'
 import { GetServerSideProps } from 'next'
 import { Title } from '../styles/pages/Home'
 interface IProduct {
@@ -13,9 +14,11 @@ export default function Home({ recommendedProducts }: HomeProps) {
 
   return (
     <div >
+      <SEO title="DevCommerce, your best commerce"/>
       <section>
+        
         <Title>Products</Title>
-
+        
         <ul>
           {recommendedProducts.map(recommendedProduct=>{
             return(

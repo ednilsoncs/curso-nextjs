@@ -60,7 +60,7 @@ export const  getStaticPaths: GetStaticPaths = async()=>{
 export const getStaticProps: GetStaticProps<CategoryProps> =async(context)=>{
 
   const  { slug } = context.params
-  const  response =  await fetch(`http://localhost:3333/products?category_id=${slug}`);
+  const  response =  await fetch(`${process.env.NEXT_PUBLIC_API_URL}=${slug}`);
 
   const  products = await response.json()
   return{
